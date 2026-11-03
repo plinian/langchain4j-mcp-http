@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>xyz.erupt</groupId>
+    <artifactId>langchain4j-mcp-http-parent</artifactId>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
+
+    <name>LangChain4j MCP HTTP</name>
+    <description>Streamable HTTP transport, prompts and resources for the LangChain4j MCP server</description>
+    <url>https://github.com/erupts/langchain4j-mcp-http</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>langchain4j-mcp-http</module>
+        <module>langchain4j-mcp-http-spring-boot-starter</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <langchain4j-mcp-server.version>1.22.0-beta32</langchain4j-mcp-server.version>
+        <spring-boot.version>3.5.16</spring-boot.version>
+        <junit.version>5.13.4</junit.version>
+        <assertj.version>3.27.6</assertj.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>xyz.erupt</groupId>
+                <artifactId>langchain4j-mcp-http</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dev.langchain4j</groupId>
+                <artifactId>langchain4j-community-mcp-server</artifactId>
+                <version>${langchain4j-mcp-server.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.14.0</version>
+                    <configuration>
+                        <parameters>true</parameters>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.5</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
